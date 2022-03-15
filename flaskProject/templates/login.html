@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>抢月饼</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+
+  <body>
+    	<!-- 第三部分 -->
+    	<table width="100%">
+    		<tr>
+    			<td align="center">
+                    <h1 align="center" style="color:#000000 ; font-size:30px">虎符福利中心-中秋抢月饼系统</h1>
+    			</td>
+    		</tr>
+    	</table>
+
+    	<!-- 第四部分 导引行 -->
+    	<div align="left">首页>福利中心>{{ context.title }}</div>
+        <hr>
+        <br>
+
+    	<!-- 第九部分 图书 -->
+    	<table width="100%" align="center">
+    		<tr>
+    			<td align="center">
+    				<img src="static/images/cake1.png" width="180", height="180"/>
+    			</td>
+    			<td align="center">
+    				<img src="static/images/cake2.png" width="180", height="180"/>
+    			</td>
+                <td  align="center">
+    				<img src="static/images/cake3.png" width="180", height="180"/>
+    			</td>
+    			<td align="center">
+    				<img src="static/images/cake4.png" width="180", height="180"/>
+    			</td>
+    		</tr>
+    		<tr>
+                {% for i in context.the_tastes %}
+    			<td align="center">口味：{{ context.the_tastes[i][0]  }}<br>余量：{{ context.the_tastes[i][1] }}</td>
+                {% endfor %}
+    	</table>
+
+
+        <!-- 定义抢购 -->
+        <div id="menu" style="background-color:rgba(255,255,255,0);">
+            <div id="kongbai" style="background-color:rgba(203,39,39,0);height:400px;width:400px;float:left;">
+            </div>
+
+            <div id="counter" style="background-color:rgba(255,255,255,0);height:400px;width:500px;float:left;">
+            <h2>抢购次数:<br>
+                <div style="font-size:200px;color: darkred;text-align: center">{{ context.counter }}</div>
+            </h2>
+            </div>
+
+            <div id="button" style="background-color:rgba(255,255,255,0);text-align: left; height:100px;width:300px;float:left;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="http://127.0.0.1:5000/?type=counter" >
+                    <input type="button" value="抢购" style="font-size: 35px;">
+                </a>
+                <br>
+                <br>
+                <a href="http://127.0.0.1:5000/?type=reset" >
+                    <input type="button" value="重置" style="font-size: 35px;">
+                </a>
+            </div>
+        </div>
+  </body>
+</html>
